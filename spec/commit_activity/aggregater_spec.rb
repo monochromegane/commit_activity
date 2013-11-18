@@ -9,17 +9,17 @@ describe CommitActivity::Aggregater do
 
   describe 'aggregate' do
 
-    context 'when a branch given.' do
-      let(:params) { 'branch_name' }
+    context 'when a repository given.' do
+      let(:params) { 'repository_name' }
       before { subject.aggregate(params) }
-      its(:branches) { should include(params) }
+      its(:repositories) { should include(params) }
     end
 
-    context 'when branches given.' do
-      let(:params) { ['branch_a', 'branch_b'] }
+    context 'when repositories given.' do
+      let(:params) { ['repository_a', 'repository_b'] }
       before { subject.aggregate(*(params)) }
-      its(:branches) { should include(params[0]) }
-      its(:branches) { should include(params[1]) }
+      its(:repositories) { should include(params[0]) }
+      its(:repositories) { should include(params[1]) }
     end
 
   end

@@ -1,8 +1,8 @@
 module CommitActivity
   class Aggregater
-    attr_accessor :branches
-    def aggregate(*branches)
-      @branches = branches
+    attr_accessor :repositories
+    def aggregate(*repositories)
+      @repositories = repositories
     end
     def since
     end
