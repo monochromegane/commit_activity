@@ -27,4 +27,12 @@ describe CommitActivity::Aggregater do
     end
 
   end
+
+  describe 'since' do
+    let(:since) { Date.today }
+    subject { CommitActivity::Aggregater.new.since(since) }
+    it { should be_instance_of CommitActivity::Aggregater }
+    it { expect(subject.since_date).to be_eql since }
+  end
+
 end

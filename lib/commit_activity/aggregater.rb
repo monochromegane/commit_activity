@@ -6,11 +6,18 @@ module CommitActivity
       self
     end
 
-    def since
+    def since(date)
+      @since = date
+      self
     end
 
     def repositories
       @repositories ||= []
     end
+
+    def since_date
+      @since
+    end
+
   end
 end
