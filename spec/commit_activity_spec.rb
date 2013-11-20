@@ -5,7 +5,9 @@ describe CommitActivity do
     CommitActivity::VERSION.should_not be_nil
   end
 
-  it 'should do something useful' do
-    false.should be_true
+  describe 'aggregate' do
+    subject { CommitActivity.aggregate }
+    it { should be_instance_of CommitActivity::Aggregater }
   end
+
 end
