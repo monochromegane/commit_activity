@@ -5,7 +5,14 @@ module CommitActivity
         command_string
       end
       def command_string(subcommand: subcommand, options: options)
-        "git #{subcommand} " + options.map {|k,v| "#{k}=#{v}"}.join(' ')
+        "git #{subcommand} " + 
+          options.map do |k,v|
+            if v.nil?
+              "#{k}"
+            else
+              "#{k}=#{v}"
+            end
+          end.join(' ')
       end
     end
   end
