@@ -1,3 +1,4 @@
+require 'json'
 module CommitActivity
   class Aggregater
 
@@ -40,6 +41,10 @@ module CommitActivity
         users
       end
       hash
+    end
+
+    def json
+      hash.to_json
     end
 
     def repositories

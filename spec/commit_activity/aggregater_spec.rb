@@ -47,4 +47,11 @@ describe CommitActivity::Aggregater do
     it { should be_instance_of Hash }
   end
 
+  describe 'json' do
+    let(:repo) { '.' }
+    subject { CommitActivity::Aggregater.new.on(repo, repo).json }
+    it { should be_instance_of String }
+  end
+
+
 end
