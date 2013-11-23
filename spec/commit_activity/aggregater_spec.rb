@@ -41,4 +41,10 @@ describe CommitActivity::Aggregater do
     it { should be_instance_of String }
   end
 
+  describe 'hash' do
+    let(:repo) { '.' }
+    subject { CommitActivity::Aggregater.new.on(repo, repo).hash }
+    it { should be_instance_of Hash }
+  end
+
 end
