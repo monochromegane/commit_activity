@@ -35,4 +35,10 @@ describe CommitActivity::Aggregater do
     it { expect(subject.since_date).to be_eql since }
   end
 
+  describe 'raw' do
+    let(:repo) { '.' }
+    subject { CommitActivity::Aggregater.new.on(repo, repo).raw }
+    it { should be_instance_of String }
+  end
+
 end

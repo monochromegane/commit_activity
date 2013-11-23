@@ -11,6 +11,13 @@ module CommitActivity
       self
     end
 
+    def raw
+      activities = repositories.inject('') do |activity, repo|
+        activity << repo.log 
+      end
+      activities
+    end
+
     def repositories
       @repositories ||= []
     end
