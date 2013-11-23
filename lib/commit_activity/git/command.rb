@@ -1,8 +1,11 @@
+require 'systemu'
 module CommitActivity
   module Git
     class Command
-      def execute(subcommand: subcommand, options: options)
-        command_string
+      def execute(repository: repository, subcommand: subcommand, options: options)
+        result = systemu "cd #{repository} && " + 
+                  command_string(subcommand: subcommand, options: options)
+        result[1] # return stdout
       end
       def command_string(subcommand: subcommand, options: options)
         "git #{subcommand} " + 
