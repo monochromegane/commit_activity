@@ -1,4 +1,5 @@
 require 'json'
+require 'commit_activity/git_repository'
 module CommitActivity
   class Aggregater
 

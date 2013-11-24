@@ -12,7 +12,8 @@ module CommitActivity
         subcommand: '--no-pager log',
         options: {
           '--branches' => nil,
-          '--pretty'   => '%cN,%ct'
+          '--pretty'   => '%cN,%ct',
+          '--since'    => '2.weeks'
         }
       ) 
     end
