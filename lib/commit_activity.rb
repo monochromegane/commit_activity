@@ -11,7 +11,9 @@ module CommitActivity
     end
 
     def aggregate
-      CommitActivity::Aggregater.new
+      aggregater = CommitActivity::Aggregater.new
+      aggregater.on(*self.configuration.repositories) unless self.configuration.repositories.nil?
+      aggregater
     end
   end
 
