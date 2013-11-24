@@ -11,7 +11,7 @@ module CommitActivity
         '--branches' => nil,
         '--pretty'   => '%cN,%ct'
       }
-      options['--since'] = since.to_s if since.nil?
+      options['--since'] = since.to_s unless since.nil?
       CommitActivity::Git::Command.new.execute(
         repository: @repository,
         subcommand: '--no-pager log',
