@@ -15,7 +15,7 @@ module CommitActivity
 
     def raw
       activities = repositories.inject('') do |activity, repo|
-        activity << repo.log
+        activity << repo.log(since: @since)
       end
       activities
     end

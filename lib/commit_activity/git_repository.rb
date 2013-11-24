@@ -6,15 +6,16 @@ module CommitActivity
       @url = url
     end
 
-    def log
+    def log(since: nil)
+      options = {
+        '--branches' => nil,
+        '--pretty'   => '%cN,%ct'
+      }
+      options['--since'] = since.to_s if since.nil?
       CommitActivity::Git::Command.new.execute(
         repository: @url,
         subcommand: '--no-pager log',
-        options: {
-          '--branches' => nil,
-          '--pretty'   => '%cN,%ct',
-          '--since'    => '2.weeks'
-        }
+        options:    options
       ) 
     end
 
