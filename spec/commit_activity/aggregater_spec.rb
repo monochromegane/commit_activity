@@ -15,7 +15,7 @@ describe CommitActivity::Aggregater do
       subject { CommitActivity::Aggregater.new.on(params) }
       it { should be_instance_of CommitActivity::Aggregater }
       it { expect(subject.repositories.first).to be_instance_of CommitActivity::GitRepository }
-      it { expect(subject.repositories.first.url).to be_eql params }
+      it { expect(subject.repositories.first.repository).to be_eql params }
     end
 
     context 'when repositories given.' do
@@ -23,7 +23,7 @@ describe CommitActivity::Aggregater do
       subject { CommitActivity::Aggregater.new.on(*(params)) }
       it { should be_instance_of CommitActivity::Aggregater }
       it { expect(subject.repositories.first).to be_instance_of CommitActivity::GitRepository }
-      it { expect(subject.repositories.first.url).to be_eql params.first }
+      it { expect(subject.repositories.first.repository).to be_eql params.first }
     end
 
   end

@@ -1,9 +1,9 @@
 require 'commit_activity/git/command'
 module CommitActivity
   class GitRepository
-    attr_accessor :url
-    def initialize(url)
-      @url = url
+    attr_accessor :repository
+    def initialize(repository)
+      @repository = repository
     end
 
     def log(since: nil)
@@ -13,7 +13,7 @@ module CommitActivity
       }
       options['--since'] = since.to_s if since.nil?
       CommitActivity::Git::Command.new.execute(
-        repository: @url,
+        repository: @repository,
         subcommand: '--no-pager log',
         options:    options
       ) 
